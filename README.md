@@ -92,4 +92,4 @@ allure open allure-report
 ```
 ## Allure Report
 
-![Allure](screenshots/allure-report.png
+![Allure](screenshots/allure-report.png)
