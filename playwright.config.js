@@ -16,7 +16,7 @@ module.exports = defineConfig({
 
     baseURL: 'https://automationexercise.com',
 
-    headless: false,
+    headless: !!process.env.CI,
 
     viewport: {
       width: 1440,
