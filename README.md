@@ -90,3 +90,6 @@ allure generate allure-results --clean -o allure-report
 ```bash
 allure open allure-report
 ```
+## Allure Report
+
+![Allure](screenshots/allure-report.png)
