@@ -1,0 +1,11 @@
+{
+  "name": "jsplaywright",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.0",
+    "allure-playwright": "^3.8.0"
+  }
+}
