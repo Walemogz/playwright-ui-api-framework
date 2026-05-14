@@ -45,7 +45,7 @@ npm install
 
 ---
 
-## Run All 
+## Run All Tests
 
 ```bash
 npx playwright test
