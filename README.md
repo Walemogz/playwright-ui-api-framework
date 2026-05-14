@@ -77,7 +77,7 @@ npx playwright show-report
 
 ---
 
-## Generate Allure Reports
+## Generate Allure Report
 
 ```bash
 allure generate allure-results --clean -o allure-report
