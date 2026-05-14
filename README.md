@@ -93,3 +93,16 @@ allure open allure-reports
 ## Allure Report
 
 ![Allure](screenshots/allure-report.png)
+
+## Jenkins CI/CD Integration
+
+This framework is integrated with Jenkins using GitHub Webhooks and ngrok for automated CI execution.
+
+Workflow: GitHub Push → Webhook Trigger → ngrok Tunnel → Jenkins → Playwright Test Execution
+
+Features:
+- Automated Jenkins builds on GitHub push
+- GitHub webhook integration
+- ngrok public tunnel for local Jenkins exposure
+- Headless Playwright execution in CI
+- HTML and Allure reporting
