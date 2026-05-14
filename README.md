@@ -88,7 +88,7 @@ allure generate allure-results --clean -o allure-report
 ## Open Allure Report
 
 ```bash
-allure open allure-report
+allure open allure-reports
 ```
 ## Allure Report
 
