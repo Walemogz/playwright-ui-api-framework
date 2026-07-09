@@ -15,16 +15,18 @@ class LoginPage {
     await this.handleConsent();
   }
 
-  async handleConsent()
-   {
+  async handleConsent() {
+    const consentButton = this.page.getByRole('button', { name: 'Consent' });
 
-    const consentButton = this.page.getByRole('button', { name: 'Consent'});
-
-    if (await consentButton.isVisible().catch(() => false)) 
-    {
-       await consentButton.click();
+    try {
+        if (await consentButton.isVisible({ timeout: 5000 })) {
+            await consentButton.click();
+            await consentButton.waitFor({ state: 'hidden' });
+        }
+    } catch (e) {
+        // Consent popup did not appear
     }
-  }
+}
 
   async openLogin()
   {

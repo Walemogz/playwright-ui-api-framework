@@ -13,13 +13,28 @@ class ProductPage {
     await this.productsLink.click();
   }
 
-  async addProductToCart(productName) {
+ async addProductToCart(productName) {
 
-    const product =this.page.locator('.product-image-wrapper').filter({hasText: productName});
+    const consentButton = this.page.getByRole('button', { name: 'Consent' });
+
+    try {
+        await consentButton.waitFor({
+            state: 'visible',
+            timeout: 2000
+        });
+
+        await consentButton.click();
+
+    } catch {
+        // Consent popup didn't appear
+    }
+
+    const product = this.page.locator('.product-image-wrapper').filter({ hasText: productName });
     await product.hover();
     await product.getByText('Add to cart').first().click();
+    await this.continueShoppingButton.waitFor();
     await this.continueShoppingButton.click();
-  }
+}
 
   async openCart()
    {
