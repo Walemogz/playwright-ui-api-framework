@@ -11,30 +11,30 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                 bat 'docker build -t walemogz/playwright-framework:latest .'
+                bat 'docker build -t walemogz/playwright-framework:latest .'
             }
         }
 
         stage('Run Playwright Tests') {
             steps {
-                bat 'docker run --rm playwright-framework'
+                bat 'docker run --rm walemogz/playwright-framework:latest'
             }
         }
 
         stage('Push Docker Image') {
-    steps {
-        withCredentials([usernamePassword(
-            credentialsId: 'dockerhub',
-            usernameVariable: 'DOCKER_USER',
-            passwordVariable: 'DOCKER_PASS'
-        )]) {
-            bat 'docker login -u %DOCKER_USER% -p %DOCKER_PASS%'
-            bat 'docker push walemogz/playwright-framework:latest'
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    bat 'echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin'
+                    bat 'docker push walemogz/playwright-framework:latest'
+                }
+            }
         }
-    }
-}
 
-
+    }   
 
     post {
         always {
