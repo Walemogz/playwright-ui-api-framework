@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t playwright-framework .'
+                 bat 'docker build -t walemogz/playwright-framework:latest .'
             }
         }
 
@@ -20,7 +20,15 @@ pipeline {
                 bat 'docker run --rm playwright-framework'
             }
         }
+
+        stage('Push Docker Image') {
+            steps {
+        bat 'docker push walemogz/playwright-framework:latest'
+            }
+        }
     }
+
+
 
     post {
         always {
