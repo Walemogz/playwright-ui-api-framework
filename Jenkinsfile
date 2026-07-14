@@ -15,11 +15,11 @@ pipeline {
             }
         }
 
-        /*stage('Run Playwright Tests') {
+        stage('Run Playwright Tests') {
             steps {
                 bat 'docker run --rm walemogz/playwright-framework:latest'
             }
-        }*/
+        }
 
         stage('Push Docker Image') {
             steps {
